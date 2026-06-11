@@ -1,0 +1,13 @@
+# requirements.txt
+# Install with: pip install -r requirements.txt
+# Compatible with Python 3.13 — no pydantic, no compilation needed
+
+fastapi==0.103.2
+# FastAPI = web framework for building APIs. Handles routing, validation, docs.
+
+uvicorn==0.23.2
+# uvicorn = web server that runs your FastAPI app.
+# Like Apache/Nginx but for Python async apps.
+
+# Note: pydantic removed — using plain Python dicts instead.
+# This makes the app work on any Python version with zero build issues.

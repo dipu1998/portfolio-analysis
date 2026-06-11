@@ -1,0 +1,49 @@
+# .dockerignore
+# =============================================================
+# Works exactly like .gitignore but for Docker.
+# Lists files/folders that should NOT be copied into the image.
+#
+# WHY? Two reasons:
+# 1. SMALLER IMAGE — don't pack unnecessary files
+# 2. SECURITY     — don't accidentally include secrets/passwords
+# =============================================================
+
+# Virtual environment folder — NEVER include this!
+# It contains Python packages installed on YOUR laptop.
+# The container installs its own packages via pip.
+# Including venv would add ~200MB of wrong packages.
+venv/
+.venv/
+env/
+
+# Python cache files — auto-generated, not needed in image
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Git files — source control metadata, not needed in container
+.git/
+.gitignore
+
+# VS Code / IDE settings — editor config, not app code
+.vscode/
+.idea/
+
+# Test files — don't ship tests in production image
+tests/
+test_*.py
+*_test.py
+
+# Local environment variables file
+# IMPORTANT: This might contain passwords/API keys!
+# Never include .env files in Docker images.
+.env
+*.env
+
+# Documentation
+*.md
+
+# OS files
+.DS_Store        # Mac
+Thumbs.db        # Windows
